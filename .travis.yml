@@ -15,5 +15,6 @@ jobs:
       deploy:
         provider: script
         script: bash deploy.sh
+        edge: true
         on:
           all_branches: true
