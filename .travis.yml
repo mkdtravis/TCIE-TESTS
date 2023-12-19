@@ -5,4 +5,8 @@ language: shell
 services: 
   - docker
 script: 
-  - sleep 1
+  - docker run --privileged ubuntu:23.04 echo "Hello, world!"
+  - docker run quay.io/podman/stable echo "Hello, world!"
+  - docker pull ubuntu:23.04
+  - docker images
+  - docker run --privileged quay.io/podman/stable echo "Hello, world!"
