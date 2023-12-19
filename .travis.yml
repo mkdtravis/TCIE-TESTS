@@ -1,20 +1,8 @@
+os: linux
+arch: ppc64le
 dist: focal
-language: python
-python: 
-- 3.10
-stages:
-  - name: build-dev
-
-jobs:
-  include:
-    - stage: build-dev
-      name: "A name"
-      install: skip
-      script:
-        - bash deploy.sh
-      deploy:
-        provider: script
-        script: bash deploy.sh
-        edge: true
-        on:
-          all_branches: true
+language: shell
+services: 
+  - docker
+script: 
+  - sleep 1
