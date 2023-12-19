@@ -1,14 +1,21 @@
 
 os: linux
 arch: ppc64le
-dist: focal
 language: shell
 services: 
   - docker
 script:
-  - uname -a
+  - uname -p
+  - echo $TRAVIS_DIST
   - docker run --privileged ubuntu:23.04 echo "Hello, world!"
   - docker run quay.io/podman/stable echo "Hello, world!"
   - docker pull ubuntu:23.04
   - docker images
   - docker run --privileged quay.io/podman/stable echo "Hello, world!"
+
+jobs: 
+  include:
+    - dist: xenial
+    - dist: binoic
+    - dist: focal
+    - dist: jammy
